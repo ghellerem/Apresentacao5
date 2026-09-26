@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#anova-tradicional",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#anova-tradicional",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "ANOVA Tradicional",
+    "text": "ANOVA Tradicional\nA ANOVA (analysis of variance) foi desenvolvida por Ronald Fisher, com o objetivo de comparar médias para avaliar a existência de efeito de um fator sobre alguma variável de interesse.\n\nHipóteses a serem testadas\n\\(H_0: \\mu_0 = \\mu_1 = ... = \\mu_k\\)\n\\(H_1: \\mu_i \\neq \\mu_j\\) para algum par i, j\n\n\nEstatística de Teste:\n\n\\(y_{ij}\\): valor de Y da j-ésima unidade amostral pertencente ao i-ésimo tratamento, \\(\\forall\\) i = 1, 2, …, k e j = 1, 2, …, n;\n\\(n_i\\): o tamanho da i-ésima amostra;\n\\(y_i\\): a i-ésima observação de y;\n\n\\(SQTrat = \\sum_{i=1}^{k} n_i \\bar y_i^2 - N \\bar y^2\\), com k-1 gl’s\n\\(SQRes = \\sum_{i=1}^{k} \\sum_{j=1}^{n_i} y_{ij}^2 - \\sum_{i=1}^{k} n_i \\bar y_i^2\\), com N-k gl’s\n\\(QMTrat = \\frac{SQTrat}{k-1}\\) \\(QMRes = \\frac{SQRes}{N-k}\\)\nEntão, a estatística de teste F da ANOVA é definida por:\n\\(F = \\frac{QMTrat}{QMRes}\\) ~ \\(F_{{k-1},{N-k}}\\)"
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#suposições",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#suposições",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Suposições",
+    "text": "Suposições\nPara se utilizar a ANOVA tradicional, assumimos os seguintes pressupostos:\n\nAmostras Independentes.\n\n\nAmostras extraídas de Populações Normais.\n\nGráfico de Densidade;\nQQ-Plot;\nShapiro-Wilk;\nKolmogorov-Smirnov.\n\n\n\nPopulações com Variâncias Iguais.\n\nBartlett e Levene."
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#homocedasticidade",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#homocedasticidade",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Homocedasticidade",
+    "text": "Homocedasticidade\nA suposição de homocedasticidade é vital para a ANOVA. Devido a sensibilidade à heterocedasticidade do teste F e pela forma em que calculamos a ANOVA, assumimos que todos os grupos compartilham a variância comum σ², e assim conseguimos realizar nossos cálculos anteriormente estabelecidos do \\(SQTrat\\), \\(SQRes\\) e \\(SQTot\\). Ademais, caso não seja verdadeira, não haverá como controlar a probabilidade de Erro do Tipo I, inflacionando os falsos positivos."
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#tukey",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#tukey",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Tukey",
+    "text": "Tukey\nO teste de Tukey realiza a comparação múltipla de todos os pares de médias possíveis após a rejeição da hipótese nula na ANOVA (pelo menos um dos grupos difere dos demais), controlando o erro do tipo I no conjunto das comparações.\n\nHipóteses a serem testadas:\n\\(H_0: \\mu_i = \\mu_j\\)\n\\(H_1: \\mu_i \\neq \\mu_j\\)\n\n\nEstatística de Teste:\n\\[Q = \\frac{\\bar{y}_i - \\bar{y}_j}{\\sqrt{\\frac{QMRes}{2} \\left(\\frac{1}{n_i} + \\frac{1}{n_j}\\right)}} \\sim \\begin{array}{c} amplitude \\ studentizada \\\\ com \\ parâmetros \\ k \\ grupos \\\\ e \\ (N - k) \\ g.l \\end{array}\\] onde \\(\\bar y_{i}\\) e \\(\\bar y_{j}\\) são as médias amostrais referentes aos tratamentos i e j, respectivamente."
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#anova-de-welch",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#anova-de-welch",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Anova de Welch",
+    "text": "Anova de Welch\n\n“E se a variância dos grupos não forem iguais?”\n\nPara resolver este problema utilizaremos a ANOVA de Welch. O teste mantém seu pressuposto de normalidade, porém, agora trabalharemos em casos da heterocedasticidade (variâncias diferentes).\n\nHipóteses a serem testadas:\n\\(H_0: \\mu_0 = \\mu_1 = ... = \\mu_k\\)\n\\(H_1: \\mu_i \\neq \\mu_j\\) para algum par i, j.\n\n\n\nEstatística de teste:\n\n\\[W = \\frac{\\frac{1}{k-1} \\sum_{j=1}^{k} \\left[ w_j (\\bar{X}_j - \\bar{X}')^2 \\right]}{1 + \\frac{2(k-2)}{k^2-1} \\sum_{j=1}^{k} \\left[ \\left( \\frac{1}{n_j - 1} \\right) \\left( 1 - \\frac{w_j}{W_{tot}} \\right)^2 \\right]} \\sim F_{k-1, \\, \\nu_2}\\]\n\nOnde:\n\n\\(w_j = \\frac{n_j}{s_j^2}\\), são os pesos individuais de cada grupo;\n\\(w = \\sum_{j=1}^{k} \\left( \\frac{n_j}{s_j^2} \\right)\\)\n\\(\\bar{X}' = \\frac{\\sum_{j=1}^{k} (w_j \\bar{X}_j)}{w}\\), é a média ponderada de todas as observações.\n\nGraus de Liberdade:\n\n\\(\\nu_1 = k-1\\)\n\\(\\nu_2 = \\frac{k^2 - 1}{3 \\sum_{j=1}^{k} \\left[ \\left( \\frac{1}{n_j - 1} \\right) \\left( 1 - \\frac{w_j}{W_{tot}} \\right)^2 \\right]}\\), onde o \\(W_{TOT}\\) representa a soma de todos os pesos individuais de cada grupo.\n\n\nDetalhe importante: pela formulação médias ponderadas com pesos maiores são aquelas dos grupos com variâncias menores."
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#games-howell",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#games-howell",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Games-Howell",
+    "text": "Games-Howell\nO teste de Games-Howell é utilizado para realizar a comparação de médias entre os grupos após a homocedasticidade ser violada.\n\nHipóteses a serem testadas:\n\\(H_0: \\mu_i = \\mu_j\\)\n\\(H_1: \\mu_i \\neq \\mu_j\\)\n\n\n\\[q = \\frac{\\bar{X}_i - \\bar{X}_j}{\\sqrt{\\frac{1}{2} \\left( \\frac{s_i^2}{n_i} + \\frac{s_j^2}{n_j} \\right)}} \\sim \\begin{array}{c} \\text{amplitude studentizada} \\\\ \\text{com } k \\text{ grupos e } \\nu \\text{ g.l.} \\end{array}\\] Onde v = \\(\\nu = \\frac{\\left( \\frac{s_i^2}{n_i} + \\frac{s_j^2}{n_j} \\right)^2}{\\frac{\\left(\\frac{s_i^2}{n_i}\\right)^2}{n_i - 1} + \\frac{\\left(\\frac{s_j^2}{n_j}\\right)^2}{n_j - 1}}\\)\n\nSua principal diferença em relação ao teste de Tukey é justamente devido a diferença entre as variâncias. Como as variâncias no teste de Tukey são iguais, a estatística de teste utiliza o QMRes. Dado que para o caso de Games-Howell, a homocedasticidade fora violada, sua estatística de teste leva em conta as variâncias dos próprios grupos analizados divididos pelo seu tamanho, somados ao do grupo respectivo comparado."
+  },
+  {
+    "objectID": "ANOVA e ANOVA de Welch - Apresentação 5.html#referências",
+    "href": "ANOVA e ANOVA de Welch - Apresentação 5.html#referências",
+    "title": "PRÁTICA ESTATÍSTICA 2",
+    "section": "Referências:",
+    "text": "Referências:\n\nYang K, Tu J, Chen T. Homoscedasticity: an overlooked critical assumption for linear regression. Gen Psychiatr. 2019 Oct 17;32(5):e100148. doi: 10.1136/gpsych-2019-100148. PMID: 31673679; PMCID: PMC6802968.\nMORAES, J.R. Notas de aula de Inferência 1. Niterói, 2026.\nDelacre, M., Leys, C., Mora, Y. L., & Lakens, D. (2019). Taking Parametric Assumptions Seriously: Arguments for the Use of Welch’s F-test instead of the Classical F-test in One-Way ANOVA. International Review of Social Psychology, 32(1): 13, 1–12. DOI: https://doi.org/10.5334/irsp.198\nMorcillo, André. (2024). ANÁLISE DE VARIÂNCIA DE WELCH, UM ROBUSTO TESTE QUANDO HÁ HETEROCEDASTICIDADE DAS VARIÂNCIAS - UMA ABORDAGEM MONTE CARLO PARA AVALIAÇÃO DO ERRO TIPO I. 10.13140/RG.2.2.21230.42561.\nJMP. Welch’s t-Test and Welch’s ANOVA. In: JMP. Statistics Knowledge Portal. Cary: JMP Statistical Discovery, [2026?]. Disponível em: https://www.jmp.com/en/statistics-knowledge-portal/inferential-statistics/hypothesis-testing/welchs-t-test-and-welchs-anova. Acesso em: 26 set. 2026.\nAllam, Ishraga. (2026). Games-Howell Test: A Comprehensive C Implementation for Multiple Comparisons with Heterogeneous Variances. 10.13140/RG.2.2.35331.16167."
+  }
+]
